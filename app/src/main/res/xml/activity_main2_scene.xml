@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000">
+        <KeyFrameSet>
+            <KeyAttribute
+                android:alpha="0.1"
+                motion:framePosition="1"
+                motion:motionTarget="@+id/textView" />
+        </KeyFrameSet>
+        <OnSwipe motion:touchAnchorId="@+id/scroll" />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start" />
+
+    <ConstraintSet android:id="@+id/end">
+
+        <Constraint
+            android:id="@+id/scroll"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_75sdp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/play"
+            android:layout_width="@dimen/_45sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginTop="@dimen/_23sdp"
+            android:layout_marginRight="@dimen/_7sdp"
+            motion:layout_constraintRight_toLeftOf="@+id/save"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible" />
+        <Constraint
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginRight="@dimen/_7sdp"
+            android:visibility="visible"
+            motion:layout_constraintRight_toLeftOf="@+id/play"
+            motion:layout_constraintTop_toTopOf="parent" />
+
+    </ConstraintSet>
+</MotionScene>
